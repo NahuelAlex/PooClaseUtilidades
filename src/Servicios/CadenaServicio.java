@@ -4,8 +4,6 @@ import Entidades.Cadena;
 import java.util.Scanner;
 
 /**
- * Método contiene(String letra), deberá comprobar si la frase contiene una letra que ingresa el
- * usuario y devuelve verdadero si la contiene y falso si no
  *
  * @author alexi
  */
@@ -33,7 +31,7 @@ public class CadenaServicio {
                     break;
             }
         }
-        System.out.println("la cantidad de bocales que tiene la cadena es:" + contador);
+        System.out.println("La cantidad de bocales que tiene la cadena es: " + contador);
     }
 
     /*Método invertirFrase(), deberá invertir la frase ingresada y mostrarla por pantalla.*/
@@ -51,7 +49,7 @@ public class CadenaServicio {
  * por ejemplo: Entrada: frase = "casa blanca". Salida: El carácter 'a' se repite 4 veces.*/
     public void vecesRepetido(Cadena c1) {
         int contador = 0;
-        System.out.println("Ingrese una letra ");
+        System.out.println("Ingrese una letra para buscar cuantas veces se repite ");
         String frase = c1.getFrase();
         String letra = leer.next();
         char letraUsuario = letra.charAt(0);
@@ -78,9 +76,11 @@ public class CadenaServicio {
     /*Método unirFrases(String frase), deberá unir la frase contenida en la clase Cadena con una
  *nueva frase ingresada por el usuario y mostrar la frase resultante.*/
     public void unirFrase(Cadena c1) {
-        System.out.println("ingrese una nueva frase");
+        System.out.println("Ingrese una nueva frase");
         String nuevaFrase = leer.next();
-        System.out.println("la Frase resulatnte es: " + c1.getFrase().concat(" " + nuevaFrase));
+        System.out.println("la frase resultante es: " + c1.getFrase().concat(" " + nuevaFrase));
+        c1.setFrase(c1.getFrase().concat(" "+nuevaFrase));
+        System.out.println(c1.getFrase());
     }
 
     /*Método reemplazar(String letra), deberá reemplazar todas las letras “a” que se encuentren en la
@@ -93,10 +93,29 @@ public class CadenaServicio {
         for (int i = 0; i < frase.length(); i++) {
             if (frase.charAt(i) == 'a') {
                 nuevaFrase += caracter;
-            }else{
+            } else {
                 nuevaFrase += frase.charAt(i);
             }
         }
-        System.out.println("LA nueva Frase es: " + nuevaFrase);
+        System.out.println("La nueva Frase es: " + nuevaFrase);
+    }
+
+    /*Método contiene(String letra), deberá comprobar si la frase contiene una letra que ingresa el
+ * usuario y devuelve verdadero si la contiene y falso si no
+    
+        }
+    }
+    return false;
+}*/
+    public boolean contiene(Cadena c1) {
+        System.out.println("Ingrese una letra que desea saber si esta en la frase: ");
+        String caracter = leer.next();
+        char caracterUsuario = caracter.charAt(0);
+        for (int i = 0; i < c1.getFrase().length(); i++) {
+            if (c1.getFrase().charAt(i) == caracterUsuario) {
+                return true;
+            }
+        }
+        return false;
     }
 }

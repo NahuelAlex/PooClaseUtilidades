@@ -33,11 +33,17 @@ public class POOEjercicios1ClasesDeUtilidades {
         String frase=leer.nextLine();
         Cadena c1 = new Cadena(frase);
         CadenaServicio cs = new CadenaServicio();
-        cs.mostrarVocales(c1);
-        cs.invertirFrase(c1);
-        cs.vecesRepetido(c1);
-        cs.comparLonguitud(c1);
+        //cs.mostrarVocales(c1);
+        //cs.invertirFrase(c1);
+        //cs.vecesRepetido(c1);
+        //cs.comparLonguitud(c1);
         cs.unirFrase(c1);
-        cs.reemplazar(c1);
+        //cs.reemplazar(c1);
+        if(cs.contiene(c1)){
+            System.out.println("El caracter se encontro en la frase");
+        }else{
+            System.out.println("No se encontro");
+        }
+        
     }
 }
